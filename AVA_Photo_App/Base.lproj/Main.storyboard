@@ -12,8 +12,8 @@
         <!--Map -->
         <scene sceneID="Vp3-IG-g8p">
             <objects>
-                <viewController title="Map " id="SxQ-jw-cC5" customClass="MapViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ixq-yt-MzS">
+                <viewController title="Map " id="SxQ-jw-cC5" customClass="MapViewController" customModule="AVA_Photo_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ixq-yt-MzS" customClass="MapViewController" customModule="AVA_Photo_App" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
