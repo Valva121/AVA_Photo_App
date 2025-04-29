@@ -102,6 +102,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="131.66666666666666" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Take Photo"/>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="I4r-GW-0Qe" eventType="touchUpInside" id="CXN-c0-HQx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlA-de-Tz3">
                                         <rect key="frame" x="221.66666666666669" y="0.0" width="131.66666666666669" height="34.333333333333336"/>
@@ -139,7 +142,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imgPlacePhoto" destination="0ZM-ZT-9NK" id="zA3-od-2g4"/>
-                        <outlet property="takePhoto" destination="nRe-KM-2NP" id="M6E-bJ-MpL"/>
                         <outlet property="txtTitle" destination="oYz-Hj-33j" id="oMI-23-Rsu"/>
                     </connections>
                 </viewController>
