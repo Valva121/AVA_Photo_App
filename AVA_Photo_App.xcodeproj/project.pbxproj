@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		353FBA172DC14B800074D525 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FBA162DC14B800074D525 /* MapViewController.swift */; };
 		35EC5E0C2DC08DE500BE55A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC5E0B2DC08DE500BE55A1 /* AppDelegate.swift */; };
 		35EC5E0E2DC08DE500BE55A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC5E0D2DC08DE500BE55A1 /* SceneDelegate.swift */; };
 		35EC5E102DC08DE500BE55A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC5E0F2DC08DE500BE55A1 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		353FBA162DC14B800074D525 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		35EC5E082DC08DE500BE55A1 /* AVA_Photo_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVA_Photo_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EC5E0B2DC08DE500BE55A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EC5E0D2DC08DE500BE55A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				35EC5E0D2DC08DE500BE55A1 /* SceneDelegate.swift */,
 				35EC5E0F2DC08DE500BE55A1 /* ViewController.swift */,
 				35EC5E112DC08DE500BE55A1 /* Main.storyboard */,
+				353FBA162DC14B800074D525 /* MapViewController.swift */,
 				35EC5E142DC08DE600BE55A1 /* Assets.xcassets */,
 				35EC5E162DC08DE600BE55A1 /* LaunchScreen.storyboard */,
 				35EC5E192DC08DE600BE55A1 /* Info.plist */,
@@ -261,6 +264,7 @@
 				35EC5E102DC08DE500BE55A1 /* ViewController.swift in Sources */,
 				35EC5E0C2DC08DE500BE55A1 /* AppDelegate.swift in Sources */,
 				35EC5E0E2DC08DE500BE55A1 /* SceneDelegate.swift in Sources */,
+				353FBA172DC14B800074D525 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
