@@ -75,7 +75,8 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
             print("Could not get Core Data context")
             return
         }
-
+        
+        //Stores the title of the location (stores: title, image and coords.)
         let newPlace = Place(context: context)
         newPlace.title = title
         if let image = imgPlacePhoto.image {

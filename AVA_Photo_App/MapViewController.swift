@@ -8,11 +8,15 @@
 import Foundation
 import UIKit
 import MapKit
-import CoreLocation
+//import CoreLocation
 import CoreData
 
-class MapViewController:UIViewController {
+class MapViewController:UIViewController, MKMapViewDelegate {
+   /*
+    - Controls the map and adds the pins (annoations)
+    */
     
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
