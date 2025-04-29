@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		017653792DC1636900D88273 /* NewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017653782DC1636900D88273 /* NewLocationViewController.swift */; };
 		0176537C2DC16D6A00D88273 /* AVA_Photo_App .xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0176537A2DC16D6A00D88273 /* AVA_Photo_App .xcdatamodeld */; };
+		017653802DC17B7F00D88273 /* AVA_Photo_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0176537E2DC17B7F00D88273 /* AVA_Photo_App.xcdatamodeld */; };
 		353FBA172DC14B800074D525 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FBA162DC14B800074D525 /* MapViewController.swift */; };
 		35E72F942DC1739A00FA15BD /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E72F932DC1739A00FA15BD /* MapPoint.swift */; };
 		35EC5E0C2DC08DE500BE55A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC5E0B2DC08DE500BE55A1 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		017653782DC1636900D88273 /* NewLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLocationViewController.swift; sourceTree = "<group>"; };
 		0176537B2DC16D6A00D88273 /* AVA_Photo_App .xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AVA_Photo_App .xcdatamodel"; sourceTree = "<group>"; };
+		0176537F2DC17B7F00D88273 /* AVA_Photo_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AVA_Photo_App.xcdatamodel; sourceTree = "<group>"; };
 		353FBA162DC14B800074D525 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		35E72F932DC1739A00FA15BD /* MapPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		35EC5E082DC08DE500BE55A1 /* AVA_Photo_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVA_Photo_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0176537D2DC17A6500D88273 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0176537A2DC16D6A00D88273 /* AVA_Photo_App .xcdatamodeld */,
+				017653782DC1636900D88273 /* NewLocationViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		35EC5DFF2DC08DE500BE55A1 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +102,7 @@
 				35EC5E212DC08DE700BE55A1 /* AVA_Photo_AppTests */,
 				35EC5E2B2DC08DE700BE55A1 /* AVA_Photo_AppUITests */,
 				35EC5E092DC08DE500BE55A1 /* Products */,
-				CDEB28D62DC17ABB000CC16D /* Recovered References */,
+				0176537D2DC17A6500D88273 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +128,7 @@
 				35EC5E142DC08DE600BE55A1 /* Assets.xcassets */,
 				35EC5E162DC08DE600BE55A1 /* LaunchScreen.storyboard */,
 				35EC5E192DC08DE600BE55A1 /* Info.plist */,
+				0176537E2DC17B7F00D88273 /* AVA_Photo_App.xcdatamodeld */,
 			);
 			path = AVA_Photo_App;
 			sourceTree = "<group>";
@@ -136,15 +148,6 @@
 				35EC5E2E2DC08DE700BE55A1 /* AVA_Photo_AppUITestsLaunchTests.swift */,
 			);
 			path = AVA_Photo_AppUITests;
-			sourceTree = "<group>";
-		};
-		CDEB28D62DC17ABB000CC16D /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				0176537A2DC16D6A00D88273 /* AVA_Photo_App .xcdatamodeld */,
-				017653782DC1636900D88273 /* NewLocationViewController.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +284,7 @@
 				0176537C2DC16D6A00D88273 /* AVA_Photo_App .xcdatamodeld in Sources */,
 				35EC5E102DC08DE500BE55A1 /* ViewController.swift in Sources */,
 				35EC5E0C2DC08DE500BE55A1 /* AppDelegate.swift in Sources */,
+				017653802DC17B7F00D88273 /* AVA_Photo_App.xcdatamodeld in Sources */,
 				35E72F942DC1739A00FA15BD /* MapPoint.swift in Sources */,
 				35EC5E0E2DC08DE500BE55A1 /* SceneDelegate.swift in Sources */,
 				017653792DC1636900D88273 /* NewLocationViewController.swift in Sources */,
@@ -640,6 +644,16 @@
 			);
 			currentVersion = 0176537B2DC16D6A00D88273 /* AVA_Photo_App .xcdatamodel */;
 			path = "AVA_Photo_App .xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		0176537E2DC17B7F00D88273 /* AVA_Photo_App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0176537F2DC17B7F00D88273 /* AVA_Photo_App.xcdatamodel */,
+			);
+			currentVersion = 0176537F2DC17B7F00D88273 /* AVA_Photo_App.xcdatamodel */;
+			path = AVA_Photo_App.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
