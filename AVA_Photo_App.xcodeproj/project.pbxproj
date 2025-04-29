@@ -91,6 +91,7 @@
 				35EC5E212DC08DE700BE55A1 /* AVA_Photo_AppTests */,
 				35EC5E2B2DC08DE700BE55A1 /* AVA_Photo_AppUITests */,
 				35EC5E092DC08DE500BE55A1 /* Products */,
+				CDEB28D62DC17ABB000CC16D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +136,15 @@
 				35EC5E2E2DC08DE700BE55A1 /* AVA_Photo_AppUITestsLaunchTests.swift */,
 			);
 			path = AVA_Photo_AppUITests;
+			sourceTree = "<group>";
+		};
+		CDEB28D62DC17ABB000CC16D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0176537A2DC16D6A00D88273 /* AVA_Photo_App .xcdatamodeld */,
+				017653782DC1636900D88273 /* NewLocationViewController.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,7 +466,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8F79ZWLBU;
+				DEVELOPMENT_TEAM = Y5P89WT3VP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AVA_Photo_App/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera to take photos of places.";
@@ -471,7 +481,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.andrewlawrence.AVAApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "GSU.AVA-Photo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -486,7 +496,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8F79ZWLBU;
+				DEVELOPMENT_TEAM = Y5P89WT3VP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AVA_Photo_App/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera to take photos of places.";
@@ -501,7 +511,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.andrewlawrence.AVAApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "GSU.AVA-Photo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
