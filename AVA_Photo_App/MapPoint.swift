@@ -15,12 +15,15 @@ class MapPoint: NSObject, MKAnnotation{
     var latitude: Double
     var longitude: Double
     
+    var imageData: Data?
+    
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
-    init(latitude: Double, longitude: Double) {
+    init(title: String?, latitude: Double, longitude: Double, imageData: Data?) {
         self.latitude = latitude
         self.longitude = longitude
+        self.imageData = imageData
     }
 }
