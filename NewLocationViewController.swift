@@ -12,14 +12,20 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
 
     @IBOutlet weak var txtTitle: UITextField!
     @IBOutlet weak var imgPlacePhoto: UIImageView!
-
+    @IBOutlet weak var lblCoordinates: UILabel!
+    
     let imagePicker = UIImagePickerController()
     var currentPlace: Place?
-
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+
+        // Gesture recognizer to dismiss keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
 
         // Load image if editing an existing place
         if let place = currentPlace, let imageData = place.image {
@@ -28,6 +34,11 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
             txtTitle.text = place.title
         }
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
 
 
     @IBAction func takePhoto(_ sender: Any) {
@@ -75,22 +86,28 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
             print("Could not get Core Data context")
             return
         }
-        
-        //Stores the title of the location (stores: title, image and coords.)
-        let newPlace = Place(context: context)
-        newPlace.title = title
+
+        let newLocation = SavedLocation(context: context)
+        newLocation.title = title
+        newLocation.latitude = latitude
+        newLocation.longitude = longitude
+
         if let image = imgPlacePhoto.image {
-            newPlace.image = image.jpegData(compressionQuality: 0.8)
+            newLocation.photo = image.jpegData(compressionQuality: 0.8)
         }
 
         do {
             try context.save()
             print("Saved successfully")
-            navigationController?.popViewController(animated: true)
+
+            // Show coordinates
+            lblCoordinates.text = "Lat: \(latitude)\nLong: \(longitude)"
+            lblCoordinates.textAlignment = .center
         } catch {
-            print("Failed to save place: \(error)")
+            print("Failed to save location: \(error)")
         }
     }
+
 }
 
     
