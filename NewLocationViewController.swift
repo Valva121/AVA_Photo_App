@@ -119,55 +119,67 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
 
-        // If we're editing an existing place, update the currentPlace
-        if let place = currentPlace {
-            // Update the existing place
-            place.title = title
-            place.latitude = locationManager.location?.coordinate.latitude ?? 0.0
-            place.longitude = locationManager.location?.coordinate.longitude ?? 0.0
-
-            if let image = imgPlacePhoto.image {
-                place.photo = image.jpegData(compressionQuality: 0.8)
-            }
-
-            do {
-                try context.save()
-                print("Updated successfully")
-
-                // Set the coordinate label with updated values
-                let coordinateString = String(format: "Lat: %.5f, Lon: %.5f", place.latitude, place.longitude)
-                lblCoordinates.text = coordinateString
-                lblCoordinates.textAlignment = .center
-
-            } catch {
-                print("Failed to update location: \(error)")
-            }
-
+        // Determine whether we are editing an existing location or creating a new one
+        let locationToSave: SavedLocation
+        if let existingPlace = currentPlace {
+            locationToSave = existingPlace
         } else {
-            // If there's no currentPlace, create a new one
-            let newLocation = SavedLocation(context: context)
-            newLocation.title = title
-            newLocation.latitude = locationManager.location?.coordinate.latitude ?? 0.0
-            newLocation.longitude = locationManager.location?.coordinate.longitude ?? 0.0
+            locationToSave = SavedLocation(context: context)
+        }
 
-            if let image = imgPlacePhoto.image {
-                newLocation.photo = image.jpegData(compressionQuality: 0.8)
+        // Set basic fields
+        locationToSave.title = title
+        locationToSave.latitude = locationManager.location?.coordinate.latitude ?? 0.0
+        locationToSave.longitude = locationManager.location?.coordinate.longitude ?? 0.0
+
+        if let image = imgPlacePhoto.image {
+            locationToSave.photo = image.jpegData(compressionQuality: 0.8)
+        }
+
+        // Save initial data to Core Data
+        do {
+            try context.save()
+            print("Initial save successful")
+        } catch {
+            print("Failed to save location: \(error)")
+        }
+
+        // Reverse geocode the location to get an address
+        let geocoder = CLGeocoder()
+        let location = CLLocation(latitude: locationToSave.latitude, longitude: locationToSave.longitude)
+
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print("Reverse geocoding failed: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.lblCoordinates.text = "Address not found"
+                }
+                return
             }
 
-            do {
-                try context.save()
-                print("Saved successfully")
+            if let placemark = placemarks?.first {
+                let street = placemark.thoroughfare ?? ""
+                let city = placemark.locality ?? ""
+                let state = placemark.administrativeArea ?? ""
+                let address = "\(street), \(city), \(state)"
 
-                // Set the coordinate label with new values
-                let coordinateString = String(format: "Lat: %.5f, Lon: %.5f", newLocation.latitude, newLocation.longitude)
-                lblCoordinates.text = coordinateString
-                lblCoordinates.textAlignment = .center
+                DispatchQueue.main.async {
+                    self.lblCoordinates.text = address
+                    self.lblCoordinates.textAlignment = .center
+                }
 
-            } catch {
-                print("Failed to save location: \(error)")
+                // Save address to Core Data
+                locationToSave.address = address
+                do {
+                    try context.save()
+                    print("Address saved successfully")
+                } catch {
+                    print("Failed to save address: \(error)")
+                }
             }
         }
     }
+
 
 
     func coordinatesToAddress(lat: Double, lon: Double) -> String{

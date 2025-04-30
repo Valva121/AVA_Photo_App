@@ -59,7 +59,7 @@ class ContactsTableViewController: UITableViewController {
 
         let photo = photos[indexPath.row] as? SavedLocation
         cell.textLabel?.text = photo?.title
-        cell.detailTextLabel?.text = "test"
+        cell.detailTextLabel?.text = photo?.address
         
         cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton
         return cell
