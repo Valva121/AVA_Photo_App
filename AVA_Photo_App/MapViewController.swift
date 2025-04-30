@@ -40,8 +40,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                default: break
                }
     }
-  
-             
+    
+    //It zooms/pans the map to fit all visible annotations on the screen.'/
+    @IBAction func findUser(_ sender: Any) {
+    //This is for the zoom...literally
+        mapView.showAnnotations(mapView.annotations, animated: true)
+    }
     //
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     //Displays the User's Location on the Map
     //It reloads pins if new ones are added in another view
     override func viewWillAppear(_ animated: Bool) {
+        //Ensures that any newly addes points appear when you go back to the map
         getLocations()
     }
     
@@ -75,6 +80,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
             let request: NSFetchRequest<SavedLocation> = SavedLocation.fetchRequest()
         do {
+            //This fetches all saved entries
             savedLocations = try context.fetch(request)
             
             if savedLocations.isEmpty {
@@ -89,6 +95,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     //Adds pins (map annotations) for each place on the map while also removing the old pins from the map...
+    //Loops throguh the entire array of 'SavedLocation' entries and adds a pin for each one
     func addPinAnnotations() {
         mapView.removeAnnotations(mapView.annotations)
         
@@ -99,12 +106,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 longitude: location.longitude,
                 imageData: location.photo
             )
+            //Adding the annotation to the map
             mapView.addAnnotation(annotation)
         }
         
     }
     
-    //Displays the User's location spot of where they took the photo
+    //Displays the pin of spot of where they took the photo (basically showing the actual picture with the pin's information)
     
     
 }

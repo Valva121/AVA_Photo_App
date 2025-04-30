@@ -32,14 +32,24 @@
                                     <action selector="mapTypeChange:" destination="SxQ-jw-cC5" eventType="valueChanged" id="CVF-Bw-cNZ"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3h-B6-MYZ">
+                                <rect key="frame" x="21" y="80" width="66" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Find.."/>
+                                <connections>
+                                    <action selector="findUser:" destination="SxQ-jw-cC5" eventType="touchUpInside" id="CIu-Vy-Wqa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sHG-60-YIp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="sHG-60-YIp" firstAttribute="bottom" secondItem="sgN-B4-TUD" secondAttribute="bottom" id="2aV-hk-UFu"/>
+                            <constraint firstItem="i3h-B6-MYZ" firstAttribute="top" secondItem="sHG-60-YIp" secondAttribute="top" constant="21" id="6Rk-o4-PZx"/>
                             <constraint firstItem="rD0-5w-OS5" firstAttribute="top" secondItem="sHG-60-YIp" secondAttribute="top" constant="15" id="79f-wU-kLL"/>
                             <constraint firstItem="rD0-5w-OS5" firstAttribute="leading" secondItem="sHG-60-YIp" secondAttribute="leading" constant="15" id="BlL-87-VRU"/>
                             <constraint firstItem="sHG-60-YIp" firstAttribute="trailing" secondItem="rD0-5w-OS5" secondAttribute="trailing" constant="15" id="JIM-yu-AS0"/>
+                            <constraint firstItem="i3h-B6-MYZ" firstAttribute="leading" secondItem="sHG-60-YIp" secondAttribute="leading" constant="21" id="iiu-N5-tHT"/>
                             <constraint firstItem="sHG-60-YIp" firstAttribute="bottom" secondItem="rD0-5w-OS5" secondAttribute="bottom" constant="15" id="tOC-vM-TxD"/>
                             <constraint firstItem="sgN-B4-TUD" firstAttribute="centerX" secondItem="rD0-5w-OS5" secondAttribute="centerX" id="vp1-z3-Vwe"/>
                         </constraints>
