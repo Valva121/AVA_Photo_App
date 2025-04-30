@@ -7,8 +7,9 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class NewLocationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewLocationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var txtTitle: UITextField!
     @IBOutlet weak var imgPlacePhoto: UIImageView!
@@ -18,6 +19,7 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
     var currentPlace: SavedLocation?
     var latitude: Double = 0.0
     var longitude: Double = 0.0
+    var locationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,37 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
             imgPlacePhoto.contentMode = .scaleAspectFit
             txtTitle.text = place.title
         }
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
+        
+        
     }
+    
+    func locationManager(_ manager: CLLocationManager,didChangeAuthorization status : CLAuthorizationStatus){
+        if status == .authorizedWhenInUse{
+            print("Permission granted")
+        }
+        else{
+            print("Permission Not granted")
+        }
+        
+    }
+    
+    
+    @IBAction func deviceCoordinates(_ sender: Any) {
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.distanceFilter = 100
+        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
+    }
+    
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -87,25 +119,80 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
 
-        let newLocation = SavedLocation(context: context)
-        newLocation.title = title
-        newLocation.latitude = latitude
-        newLocation.longitude = longitude
+        // If we're editing an existing place, update the currentPlace
+        if let place = currentPlace {
+            // Update the existing place
+            place.title = title
+            place.latitude = locationManager.location?.coordinate.latitude ?? 0.0
+            place.longitude = locationManager.location?.coordinate.longitude ?? 0.0
 
-        if let image = imgPlacePhoto.image {
-            newLocation.photo = image.jpegData(compressionQuality: 0.8)
+            if let image = imgPlacePhoto.image {
+                place.photo = image.jpegData(compressionQuality: 0.8)
+            }
+
+            do {
+                try context.save()
+                print("Updated successfully")
+
+                // Set the coordinate label with updated values
+                let coordinateString = String(format: "Lat: %.5f, Lon: %.5f", place.latitude, place.longitude)
+                lblCoordinates.text = coordinateString
+                lblCoordinates.textAlignment = .center
+
+            } catch {
+                print("Failed to update location: \(error)")
+            }
+
+        } else {
+            // If there's no currentPlace, create a new one
+            let newLocation = SavedLocation(context: context)
+            newLocation.title = title
+            newLocation.latitude = locationManager.location?.coordinate.latitude ?? 0.0
+            newLocation.longitude = locationManager.location?.coordinate.longitude ?? 0.0
+
+            if let image = imgPlacePhoto.image {
+                newLocation.photo = image.jpegData(compressionQuality: 0.8)
+            }
+
+            do {
+                try context.save()
+                print("Saved successfully")
+
+                // Set the coordinate label with new values
+                let coordinateString = String(format: "Lat: %.5f, Lon: %.5f", newLocation.latitude, newLocation.longitude)
+                lblCoordinates.text = coordinateString
+                lblCoordinates.textAlignment = .center
+
+            } catch {
+                print("Failed to save location: \(error)")
+            }
         }
+    }
 
-        do {
-            try context.save()
-            print("Saved successfully")
 
-            // Show coordinates
-            lblCoordinates.text = "Lat: \(latitude)\nLong: \(longitude)"
-            lblCoordinates.textAlignment = .center
-        } catch {
-            print("Failed to save location: \(error)")
+    func coordinatesToAddress(lat: Double, lon: Double) -> String{
+        let geocoder = CLGeocoder()
+        let location = CLLocation(latitude: lat, longitude: lon)
+        var address = " hello"
+        
+        geocoder.reverseGeocodeLocation(location){placemarks, error in
+            if let error = error {
+                print("reverse geocoding failed: \(error.localizedDescription)")
+                return
+            }
+            if let placemark = placemarks?.first {
+                let street = placemark.thoroughfare ?? ""
+                let city = placemark.locality ??  ""
+                let state = placemark.administrativeArea ?? ""
+            
+                address = "\(street), \(city),\(state)"
+            }
+            else{
+                address = "no address found"
+            }
+            
         }
+        return address
     }
 
 }
