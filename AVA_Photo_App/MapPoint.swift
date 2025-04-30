@@ -11,7 +11,7 @@ import MapKit
 // Will be used to store the annotation for a single point on the map.
 class MapPoint: NSObject, MKAnnotation{
     var title: String?
-    var subtitle: String?
+    //var subtitle: String?
     var latitude: Double
     var longitude: Double
     
@@ -22,6 +22,8 @@ class MapPoint: NSObject, MKAnnotation{
     }
     
     init(title: String?, latitude: Double, longitude: Double, imageData: Data?) {
+        self.title = title
+        //self.subtitle = subtitle
         self.latitude = latitude
         self.longitude = longitude
         self.imageData = imageData
