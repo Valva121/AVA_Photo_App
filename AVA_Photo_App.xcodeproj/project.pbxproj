@@ -23,6 +23,7 @@
 		35EC5E232DC08DE700BE55A1 /* AVA_Photo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC5E222DC08DE700BE55A1 /* AVA_Photo_AppTests.swift */; };
 		35EC5E2D2DC08DE700BE55A1 /* AVA_Photo_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC5E2C2DC08DE700BE55A1 /* AVA_Photo_AppUITests.swift */; };
 		35EC5E2F2DC08DE700BE55A1 /* AVA_Photo_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC5E2E2DC08DE700BE55A1 /* AVA_Photo_AppUITestsLaunchTests.swift */; };
+		CDEB28DB2DC1EF86000CC16D /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEB28DA2DC1EF86000CC16D /* ContactsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		35EC5E282DC08DE700BE55A1 /* AVA_Photo_AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AVA_Photo_AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EC5E2C2DC08DE700BE55A1 /* AVA_Photo_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVA_Photo_AppUITests.swift; sourceTree = "<group>"; };
 		35EC5E2E2DC08DE700BE55A1 /* AVA_Photo_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVA_Photo_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CDEB28DA2DC1EF86000CC16D /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				35EC5E0D2DC08DE500BE55A1 /* SceneDelegate.swift */,
 				35EC5E0F2DC08DE500BE55A1 /* ViewController.swift */,
 				35EC5E112DC08DE500BE55A1 /* Main.storyboard */,
+				CDEB28DA2DC1EF86000CC16D /* ContactsTableViewController.swift */,
 				35E72F932DC1739A00FA15BD /* MapPoint.swift */,
 				353FBA162DC14B800074D525 /* MapViewController.swift */,
 				35EC5E142DC08DE600BE55A1 /* Assets.xcassets */,
@@ -291,6 +294,7 @@
 				35EC5E102DC08DE500BE55A1 /* ViewController.swift in Sources */,
 				35EC5E0C2DC08DE500BE55A1 /* AppDelegate.swift in Sources */,
 				017653832DC186A000D88273 /* NewLocationViewController.swift in Sources */,
+				CDEB28DB2DC1EF86000CC16D /* ContactsTableViewController.swift in Sources */,
 				35E72F942DC1739A00FA15BD /* MapPoint.swift in Sources */,
 				35EC5E0E2DC08DE500BE55A1 /* SceneDelegate.swift in Sources */,
 				017653922DC1975400D88273 /* SavedLocation+CoreDataClass.swift in Sources */,
@@ -478,10 +482,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8F79ZWLBU;
+				DEVELOPMENT_TEAM = Y5P89WT3VP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AVA_Photo_App/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera to take photos of places.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to know where we’re at!";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to choose images of places.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -493,7 +498,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AVA-Photo-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "GSU.AVA-Photo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -508,10 +513,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N8F79ZWLBU;
+				DEVELOPMENT_TEAM = Y5P89WT3VP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AVA_Photo_App/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera to take photos of places.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to know where we’re at!";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to your photo library to choose images of places.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -523,7 +529,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "AVA-Photo-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "GSU.AVA-Photo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

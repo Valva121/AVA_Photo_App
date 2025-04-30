@@ -15,7 +15,7 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var lblCoordinates: UILabel!
     
     let imagePicker = UIImagePickerController()
-    var currentPlace: Place?
+    var currentPlace: SavedLocation?
     var latitude: Double = 0.0
     var longitude: Double = 0.0
 
@@ -28,7 +28,7 @@ class NewLocationViewController: UIViewController, UIImagePickerControllerDelega
         view.addGestureRecognizer(tapGesture)
 
         // Load image if editing an existing place
-        if let place = currentPlace, let imageData = place.image {
+        if let place = currentPlace, let imageData = place.photo {
             imgPlacePhoto.image = UIImage(data: imageData)
             imgPlacePhoto.contentMode = .scaleAspectFit
             txtTitle.text = place.title
